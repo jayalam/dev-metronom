@@ -9,3 +9,9 @@ CREATE TABLE IF NOT EXISTS `metronom-dev`.`url_shorter` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   UNIQUE INDEX `long_url_UNIQUE` (`long_url` ASC),
   UNIQUE INDEX `short_url_id_UNIQUE` (`short_url_id` ASC));
+
+CREATE TABLE IF NOT EXISTS `metronom-dev`.`url_short_timestamp` (
+  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `short_url_id` INT NOT NULL,
+  `timestamp` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`));

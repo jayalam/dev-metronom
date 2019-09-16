@@ -136,14 +136,32 @@ app.get('/link/:shortUrl', (req, res) => {
                 if (values != null)
                     LOG.info("Dataset updated.", values);
                 else
-                    LOG.info("Error?? ??? : ", values);
+                    LOG.info("Error : ", values);
 
+                let query = 'INSERT INTO url_short_timestamp (short_url_id, `timestamp`) VALUES (?, NOW())';
+
+                let params = [
+                    dataset.id
+                ];
+
+                DBQuery(query, params, (values) => {
+                    if (values != null)
+                        LOG.info    ("Dataset saved.", values)
+                });
             });
 
             res.redirect(dataset.long_url)
         } else
             res.status(404).send('Error: shortlink not found on db.')
     })
+});
+
+app.get('/link/:shortUrl/stats', (req, res) => {
+    // TODO : add stats here for links!!!!
+
+    let htmlResponse = '';
+
+    res.send(htmlResponse);
 });
 
 app.post('/generate-short-url', (req, res) => {
