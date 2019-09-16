@@ -1,0 +1,34 @@
+{
+  "name": "dev-metronom",
+  "version": "1.0.0",
+  "description": "SRE code challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jayalam/dev-metronom.git"
+  },
+  "author": "Jorge Ayala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jayalam/dev-metronom/issues"
+  },
+  "homepage": "https://github.com/jayalam/dev-metronom#readme",
+  "dependencies": {
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "mysql": "2.17.1",
+    "log4js": "5.1.0",
+    "shortid": "2.2.15",
+    "url-parse": "1.4.7"
+
+  },
+  "devDependencies": {
+    "nodemon": "1.19.2"
+  },
+  "engines": {
+    "node": ">= 6.0.0"
+  }
+}
