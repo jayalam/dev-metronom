@@ -157,11 +157,31 @@ app.get('/link/:shortUrl', (req, res) => {
 });
 
 app.get('/link/:shortUrl/stats', (req, res) => {
-    // TODO : add stats here for links!!!!
+    let shortUrl = req.params.shortUrl;
 
+    console.log("shortUrl : ", shortUrl);
     let htmlResponse = '';
 
-    res.send(htmlResponse);
+    let query = 'SELECT * FROM url_shorter WHERE short_url_id = ?';
+
+    let params = [
+        shortUrl
+    ];
+
+    DBQuery(query, params, (values) => {
+        if (values.length > 0)
+            console.log("Dataset saved.", values);
+        let dataset = values[0];
+
+        htmlResponse += 'id         : ' + dataset.id + '<br>';
+        htmlResponse += 'shortUrl   : ' + dataset.short_url_id + '<br>';
+        htmlResponse += 'longUrl    : ' + dataset.long_url + '<br>';
+        htmlResponse += 'counter    : ' + dataset.access_counter + '<br>';
+
+        // TODO : add ChartJS here for stats!!!!
+
+        res.send(htmlResponse);
+    });
 });
 
 app.post('/generate-short-url', (req, res) => {
