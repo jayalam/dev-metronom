@@ -18,7 +18,7 @@
   "homepage": "https://github.com/jayalam/dev-metronom#readme",
   "dependencies": {
     "body-parser": "1.19.0",
-    "express": "4.17.1",
+    "express": "4.19.2",
     "mysql": "2.17.1",
     "log4js": "5.1.0",
     "shortid": "2.2.15",
